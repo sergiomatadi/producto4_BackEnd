@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-sacale=1.0">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+
+	<header th:replace="plantilla/templateAdmin :: header"></header>
+    
+    <main>
+    
+    <h1 class="title">Hello World, somos el grupo CodersTeam</h1>
+        <section class="cards">
+            <div class="card">
+                <div class="card_image-container">
+                    <img th:src="@{/images/menu.png}">
+                </div>
+                <div class="card_content">
+                    <p class="card_title text--medium">
+                        MENUS
+                    </p>
+                    <div class="card_info">
+                        <p class="text--medium"> ELIGE TU MENÚ</p>
+                    </div>
+                    <div class="btn">
+                        <a th:href="@{/menus/seleccionMenu}">Haz a tu pedido</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_image-container">
+                    <img th:src="@{/images/drinks.png}">
+                </div>
+                <div class="card_content">
+                    <p class="card_title text--medium">
+                        MENUS
+                    </p>
+                    <div class="card_info">
+                        <p class="text--medium"> ELIGE TU BEBIDA</p>
+                    </div>
+                    <div class="btn">
+                        <a th:href="@{/menus/menuBebida}">Haz a tu pedido</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_image-container">
+                    <img th:src="@{/images/postres.jpg}">
+                </div>
+                <div class="card_content">
+                    <p class="card_title text--medium">
+                        MENUS
+                    </p>
+                    <div class="card_info">
+                        <p class="text--medium"> ELIGE TU POSTRE</p>
+                    </div>
+                    <div class="btn">
+                        <a th:href="@{/menus/seleccionMenu}">Haz a tu pedido</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_image-container">
+                    <img th:src="@{/images/fritas.png}">
+                </div>
+                <div class="card_content">
+                    <p class="card_title text--medium">
+                        MENUS
+                    </p>
+                    <div class="card_info">
+                        <p class="text--medium"> ELIGE TU COMPLEMENTOS</p>
+                    </div>
+                    <div class="btn">
+                        <a th:href="@{/menus/seleccionMenu}">Haz a tu pedido</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_image-container">
+                    <img th:src="@{/images/ensaladas.png}">
+                </div>
+                <div class="card_content">
+                    <p class="card_title text--medium">
+                        MENUS
+                    </p>
+                    <div class="card_info">
+                        <p class="text--medium"> ELIGE TU POSTRE</p>
+                    </div>
+                    <div class="btn">
+                        <a th:href="@{/menus/seleccionMenu}">Haz a tu pedido</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card_image-container">
+                    <img th:src="@{/images/intolerancias.webp}">
+                </div>
+                <div class="card_content">
+                    <p class="card_title text--medium">
+                        MENUS
+                    </p>
+                    <div class="card_info">
+                        <p class="text--medium"> ELIGE TU POSTRE</p>
+                    </div>
+                    <div class="btn">
+                        <a th:href="@{/menus/seleccionMenu}">Haz a tu pedido</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

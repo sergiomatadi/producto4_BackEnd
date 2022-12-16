@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-sacale=1.0">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+    
+    <main>
+    
+    <h1 class="title">Elige lo que más te guste</h1>
+        <section class="cards">
+            <div th:each="mn:${menus}" class="card">
+                <div class="card_image-container">
+                    <img th:src="@{/images/hamburguesa-refresco-patatas-fritas.webp}">
+                </div>
+                <div class="card_content">
+                    <p th:text="${mn.nombre}" class="card_title text--medium"></p>
+                    <p th:text="${mn.precio}+€" class="card_title text--medium"></p>
+                    <div class="card_info">
+                    	<div>
+	                        <p th:each="pd:${mn.productos}" th:text="${pd.descripcion}"></p>
+                        </div>                       
+                    </div>
+                    <div class="btn">
+                        <a th:href="@{'/anyadirMenu?idMenu='+${mn.id}}">Añadir a tu pedido</a>  
+                    </div>
+                </div>
+            </div>
+      
+
+        </section>
+    </main>
+    <footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

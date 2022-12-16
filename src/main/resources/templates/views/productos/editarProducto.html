@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/templateAdmin :: header"></header>
+
+	<div class="container">
+	
+	<div class="card bg-light">
+	<div class="card-header bg-dark text-white"><h1>Editar Producto</h1></div>
+	<div class="card-body">
+	
+		
+		<form th:action="@{/admin/guardarProducto}"  method="post">
+			
+			<div class="form-group row">
+				<input type="hidden" name="id" th:value="${producto.id}">
+				<label for="descripcion" class="col-md-2">DESCRIPCION</label> 
+				<input type="text" class="form-control form-control-sm col-md-6"
+					id="descripcion" name="descripcion" placeholder="descripcion" th:value="${producto.descripcion}">
+			</div>
+			<div class="form-group row">
+				<label for="kcal" class="col-md-2">Kcal</label> 
+				<input type="text" name="kcal" class="form-control form-control-sm col-md-6"
+					id="kcal" placeholder="120" th:value="${producto.kcal}">
+			</div>
+			<div class="form-group row">
+				<label for="kcal" class="col-md-2">Tipo</label> 
+				<select  class="form-control form-control-sm col-md-6" name="tipo">
+					<option th:each="tp:${tipos}" th:value="${tp.id}" th:text="${tp.nombre}" th:selected="${producto.tipo.id==tp.id ? 'true' : 'false'}" ></option>				
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Guardar</button>
+		</form>
+		</div>
+	</div>
+	</div>
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org"
+	  xmlns:sec="http://www.thyleaf.org/extras/spring-security">
+<head th:fragment="head">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>APP PARA CASA</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+<style>
+.cont_token{
+	width:90vw;
+	word-wrap:break-word;
+}
+</style>
+</head>
+<body>
+
+	<!-- BARRA NAVEGACION -->
+	<header th:fragment="header">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" th:href="@{/}">CodersTeam</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link" th:href="@{/}">Home
+							<span class="sr-only">(current)</span>
+					</a></li>
+					<li class="nav-item"><a class="nav-link" href="#">Menus</a></li>
+					
+
+				</ul>
+				<div>
+                    <p class= "mr-5 text-white">Bienvenid@ <span th:text="${nombreUsuario}"></span></p>
+                </div>
+              <a th:href="@{/pedidoUsuario}"><button type="button" class="btn btn-outline-success mx-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+</svg></button></a>
+                
+                	<div class="btn-group">
+
+                    <button class="btn btn-outline-success dropdown-toggle my-2 my-sm-0"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" type="submit">OPCIONES</button>
+                        <div class="dropdown-menu">
+                        <form th:action="@{/logout}" class="form-inline my-2 my-lg-0">
+    <button class="dropdown-item"   type="submit">Cerrar
+                        sesión</button>
+    </form>
+    <a th:href="@{/verToken}" class="dropdown-item" href="#">Ver TOKEN</a>
+    </div>
+                
+ 
+            </div>
+		</nav>
+
+	</header>
+	<!-- CONTENIDO -->
+	
+	<!-- PIE DE PAGINA -->
+	
+	<footer th:fragment="footer"
+		class="footer mt-auto text-center text-white bg-dark fixed-bottom">
+		<div class="container_footer">
+			<p>CODERSTEAM</p>
+		</div>
+		<script type="text/javascript"
+			th:src="@{/js/jquery-3.2.1.slim.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+	</footer>
+
+</body>
+</html>

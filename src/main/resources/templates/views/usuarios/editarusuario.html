@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/templateAdmin :: header"></header>
+
+	<div class="container">
+	
+	<div class="card bg-light">
+	<div class="card-header bg-dark text-white"><h1>Editar Usuario</h1></div>
+	<div class="card-body">
+	
+		
+		<form th:action="@{/admin/guardarUsuario}"  method="post">
+		
+                <div class="form-group row">
+				<input type="hidden" name="id" th:value="${usuario.id}">
+				<label for="nombre" class="col-md-2">Nombre</label> 
+				<input type="text" class="form-control form-control-sm col-md-6"
+					id="nombre" name="nombre" placeholder="nombre" th:value="${usuario.nombre}" readonly>
+			</div>
+			<div class="form-group row">
+				<label for="correo" class="col-md-2">correo</label> 
+				<input type="text" name="correo" class="form-control form-control-sm col-md-6"
+					id="correo" placeholder="120" th:value="${usuario.correo}" readonly>
+			</div>
+			<div class="form-group row">
+				<label for="usuario" class="col-md-2">usuario</label> 
+				<input type="text" name="usuario" class="form-control form-control-sm col-md-6"
+					id="usuario" placeholder="120" th:value="${usuario.usuario}" readonly>
+			</div>
+			<div class="form-group row">
+				<label for="password" class="col-md-2">password</label> 
+				<input type="disabled" name="password" class="form-control form-control-sm col-md-6"
+					id="password" placeholder="120" th:value="${usuario.password}" readonly>
+			</div>
+			<div class="form-group row">
+				<label for="DNI" class="col-md-2">DNI</label> 
+				<input type="text" name="DNI" class="form-control form-control-sm col-md-6"
+					id="DNI" placeholder="120" th:value="${usuario.DNI}" readonly>
+			</div>
+			<div class="form-group row">
+				<label for="role" class="col-md-2">Rol</label> 
+				<select  class="form-control form-control-sm col-md-6" name="role">
+					<option th:each="role:${roles}" th:value="${role.id}" th:text="${role.nombre}" th:selected="${usuario.role.id==role.id ? 'true' : 'false'}" ></option>				
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Guardar</button>
+		</form>
+		</div>
+	</div>
+	</div>
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

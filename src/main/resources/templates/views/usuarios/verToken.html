@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+<style>
+.cont_token{
+	width:90vw;
+	word-wrap:break-word;
+}
+</style>
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+	<footer th:replace="plantilla/template :: footer"></footer>
+	
+	 <h1   style="padding-left: 50px; font-size: 30px;" class="cont_token">Tu token: <span th:text="${token}"></span></h1>
+</body>
+</html>

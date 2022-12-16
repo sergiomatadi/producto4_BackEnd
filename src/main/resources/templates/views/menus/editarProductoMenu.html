@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/templateAdmin :: header"></header>
+
+	<div class="container">
+		<h3 th:text="${menu.nombre}"></h3>
+		<h3 th:text="${menu.precio}"></h3>
+
+		<h1>Listado Productos</h1>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Descripcion</th>
+					<th scope="col">Kcal</th>
+					<th scope="col">Tipo</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pr:${menu.productos}">
+					<th scope="row" th:text="${pr.id}"></th>
+					<td th:text="${pr.descripcion}"></td>
+					<td th:text="${pr.kcal}"></td>
+					<td th:text="${pr.tipo.nombre}"></td>
+					<td>
+						<form th:action="@{/admin/eliminarProductoMenu}" method="post">
+							<input type="hidden" name="id_menu" th:value="${menu.id}">
+							<input type="hidden" name="id_producto" th:value="${pr.id}">
+							<button class="btn btn-danger btn-sm" type="submit">Eliminar del menu</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+			<a class="btn btn-primary btn-sm" th:href="@{/admin/menus}">Terminar</a>
+		</div>
+		</div>
+		
+		
+<div class="container">
+		<h1>Productos disponibles para incluir</h1>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Descripcion</th>
+					<th scope="col">Kcal</th>
+					<th scope="col">Tipo</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pr:${productosDisponibles}">
+					<th scope="row" th:text="${pr.id}"></th>
+					<td th:text="${pr.descripcion}"></td>
+					<td th:text="${pr.kcal}"></td>
+					<td th:text="${pr.tipo.nombre}"></td>
+					<td>
+						<form th:action="@{/admin/anyadirProductoMenu}" method="post">
+							<input type="hidden" name="id_menu" th:value="${menu.id}">
+							<input type="hidden" name="id_producto" th:value="${pr.id}">
+							<button class="btn btn-success btn-sm" type="submit">Agregar al menu</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+	<div>
+	<footer th:replace="plantilla/template :: footer"></footer>
+	</div>
+</body>
+</html>

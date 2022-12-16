@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:insert="plantilla/templateAdmin :: header"></header>
+
+	<div class="container">
+		<h1>Listado Menus</h1>
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+			<a class="btn btn-success my-2 my-sm-0" th:href="@{/admin/menus/crearMenu}">+</a>
+		</div>
+		<table class="table mt-4">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Prodúctos</th>
+					<th scope="col">Precio</th>
+
+					<th colspan="3" scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="mn:${menus}">
+					<th scope="row" th:text="${mn.id}"></th>
+					<td th:text="${mn.nombre}"></td>
+					<td th:text="${mn.precio}"></td>
+					<td width="10px">
+						<a th:href="@{'/admin/editarMenu?id='+${mn.id}}" class="btn btn-warning btn-sm">Editar</a>
+					</td>
+					<td width="10px">
+						<form th:action="@{/admin/eliminarMenu}" method="post" onsubmit="return confirm('¿Quieres eliminar?')">
+							<input type="hidden" name="id" th:value="${mn.id}">
+							<button type="submit" class="btn btn-danger btn-sm">Borrar</button>
+						</form>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

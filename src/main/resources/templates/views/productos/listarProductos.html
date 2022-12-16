@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/templateAdmin :: header"></header>
+
+	<div class="container">
+		<h1>Listado Productos</h1>
+		<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+			<a class="btn btn-success me-md-2"
+				th:href="@{/admin/productos/crearProducto}">+</a>
+		</div>
+		<table class="table mt-4">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">Descripción</th>
+					<th scope="col">Kcal</th>
+					<th scope="col">Tipo</th>
+					<th colspan="3" scope="col">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pr:${productos}">
+					<th scope="row" th:text="${pr.id}"></th>
+					<td th:text="${pr.descripcion}"></td>
+					<td th:text="${pr.kcal}"></td>
+					<td th:text="${pr.tipo.nombre}"></td>
+					<td width="10px"><a
+						th:href="@{'/admin/editarProducto?id='+${pr.id}}"
+						class="btn btn-warning btn-sm">Editar </a></td>
+					<td width="10px">
+						<form th:action="@{/admin/eliminarProducto}" method="post">
+							<input type="hidden" name="id" th:value="${pr.id}">
+							<button type="submit" class="btn btn-danger btn-sm"
+								onclick="return confirm('�Quieres eliminar?')">Borrar</button>
+						</form>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

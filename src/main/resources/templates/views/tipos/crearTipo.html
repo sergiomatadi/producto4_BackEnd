@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/templateAdmin :: header"></header>
+
+	<div class="container">
+
+		<div class="card bg-light">
+			<div class="card-header bg-dark text-white">
+				<h1>Nuevo Tipo</h1>
+			</div>
+			<div class="card-body">
+
+
+				<form th:action="@{/admin/agregarTipo}" method="post">
+					<div class="form-group row">
+						<label for="nombre" class="col-md-2">NOMBRE</label> <input
+							type="text" name="nombre" class="form-control form-control-sm col-md-6"
+							id="nombre" placeholder="tipo de alimento">
+					</div>
+					<button type="submit" class="btn btn-primary">Guardar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

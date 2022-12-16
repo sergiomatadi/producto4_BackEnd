@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/templateAdmin :: header"></header>
+
+	<div class="container">
+	
+		<div class="card bg-light">
+			<div class="card-header bg-dark text-white"><h1>Editar Menu</h1></div>
+			<div class="card-body">
+		
+			
+				<form  th:action=@{/admin/modificarMenu} method="post">
+					<div class="form-group row">
+						
+						<input type="hidden" name="id" th:value="${menu.id}">
+						<label for="nombre" class="col-md-2">Nombre del  menu</label> 
+						<input type="text" name="nombre" class="form-control form-control-sm col-md-6"
+							id="nombre" th:value="${menu.nombre}" >
+					</div>
+					<div class="form-group row">
+						<label for="precio" class="col-md-2">Precio</label> 
+						<input type="number" name="precio" class="form-control form-control-sm col-md-6"
+							id="precio" th:value="${menu.precio}" >
+					</div>
+					<button type="submit" class="btn btn-primary">Guardar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>
